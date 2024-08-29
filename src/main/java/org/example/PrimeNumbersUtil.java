@@ -6,6 +6,8 @@ import java.util.stream.IntStream;
     public class PrimeNumbersUtil {
 
         public static List<Integer> getPrimeNumbersInRange(int lowerLimit, int upperLimit) {
+                if (upperLimit < lowerLimit)
+                    throw new IllegalArgumentException("Upper limit must be greater than lower limit");
             return IntStream.rangeClosed(lowerLimit, upperLimit)
                     .filter(PrimeNumbersUtil::isPrime)
                     .boxed()
